@@ -1,0 +1,19 @@
+<!-- put this at, say, https://yourdomain.com/medicfier-checkout.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <script src="https://js.stripe.com/v3/"></script>
+  </head>
+  <body>
+    <script>
+      const stripe = Stripe("pk_test_51RNZ6MQYr7dIX1LAZ4bkAI1opkzaromJjUD9YmGGR3ah4lLL3PfrxRHqjGm88FVnDLHutWzWphu5WDlaTwGphuBJ001s3mEgTh");           // your publishable key
+      stripe.redirectToCheckout({
+        mode: "payment",
+        lineItems: [{ price: "price_1RNZUgQYr7dIX1LAOwiAyUaR", quantity: 1 }],
+        successUrl: "medicfier://success",
+        cancelUrl:  "medicfier://cancel"
+      });
+    </script>
+  </body>
+</html>
